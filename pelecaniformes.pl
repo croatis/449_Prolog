@@ -57,6 +57,28 @@ ofGenus(plegadis_falcinellus, plegadis).
 ofGenus(plegadis_chihi, plegadis).
 ofGenus(platalea_ajaja, platalea).
 
+
+% For common species parents references'. Genus refrences Read as: X is of genus Y. 
+ofGenusNS(erythrorhynchos, pelecanus).
+ofGenusNS(occidentalis, pelecanus).
+
+ofGenusNS(lentiginosus, botaurus).
+ofGenusNS(exilis, ixobrychus).
+ofGenusNS(herodias, ardea).
+ofGenusNS(alba, ardea).
+ofGenusNS(thula, egretta).
+ofGenusNS(caerulea, egretta).
+ofGenusNS(tricolor, egretta).
+ofGenusNS(rufescens, egretta).
+ofGenusNS(ibis, bubulcus).
+ofGenusNS(virescens, butorides).
+ofGenusNS(nycticorax, nycticorax).
+ofGenusNS(violacea, nyctanassa).
+
+ofGenusNS(albus, eudocimus).
+ofGenusNS(falcinellus, plegadis).
+ofGenusNS(chihi, plegadis).
+ofGenusNS(ajaja, platalea).
 % Scientific names and their common names; spaced out by common name.
 commonName(pelecanus, pelican).
 
@@ -188,7 +210,7 @@ species(ajaja, platalea).
 
 % ----------------------------------------
 
-hasParent(A, B) :- ofOrder(A, B); ofFamily(A,B); ofGenus(A, B).
+hasParent(A, B) :- ofOrder(A, B); ofFamily(A,B); ofGenusNS(A, B).
 
 % ----------------------------------------
 
@@ -205,16 +227,15 @@ hasCommonName(G, S, C) :- genus(G),
 
 % ----------------------------------------
 							  														
-isaStrict(A, B) :- hasParent(A, B);
-					hasParent(A, X), hasParent(X, B);
-						hasParent(A, X), hasParent(X, Y), hasParent(Y, B).								
+isaStrict(A, B) :- hasParent2(A, B);
+					hasParent2(A, X), hasParent2(X, B);
+						hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B).								
 
 % ----------------------------------------
-% needs support for common names.
 
 isa(A, B) :- hasParent(A, B);
 				hasParent(A, X), hasParent(X, B);
-					hasParent(A, X), hasParent(X, Y), hasParent(Y, B).
+					hasParent(A, X), hasParent(X, Y), hasParent(Y, B);.
 
 % ----------------------------------------
 
