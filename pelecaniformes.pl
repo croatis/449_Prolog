@@ -57,7 +57,7 @@ ofGenus(falcinellus, plegadis).
 ofGenus(chihi, plegadis).
 ofGenus(ajaja, platalea).
 
-% Common names; spaced out by common name.
+% Scientific names and their common names; spaced out by common name.
 commonName(pelecanus, pelican).
 
 commonName(botaurus, bittern).
@@ -69,6 +69,8 @@ commonName(butorides, heron).
 
 commonName(egretta, egret).
 commonName(bubulcus, egret).
+commonName(egret, heron).
+commonName(heron, egret).
 
 commonName(nycticorax, nightHeron).
 commonName(nyctanassa, nightHeron).
@@ -90,7 +92,7 @@ commonName(egretta_caerulea, littleBlueHeron).
 commonName(egretta_tricolor, tricoloredHeron).
 commonName(egretta_rufescens, reddishEgret).
 commonName(bubulcus_ibis, cattleEgret).
-commonName(butorides_bubulcus_virescens, greenHerron).
+commonName(butorides_virescens, greenHerron).
 commonName(nycticorax_nycticorax, blackCrownedNightHeron).
 commonName(nyctanassa_violacea, yellowCrownedNightHeron).
 commonName(eudocimus_albus, whiteIbis).
@@ -98,6 +100,26 @@ commonName(plegadis_falcinellus, glossyIbis).
 commonName(plegadis_chihi, whiteFacedIbis).
 commonName(platalea_ajaja, roseateSpoonbill).
 
+% Possible compound species names.
+
+compound(pelecanus_erythrorhynchos).
+compound(pelecanus_occidentalis).
+compound(botaurus_lentiginosus).
+compound(ixobrychus_exilis).
+compound(ardea_herodias).
+compound(ardea_alba).
+compound(egretta_thula).
+compound(egretta_caerulea).
+compound(egretta_tricolor).
+compound(egretta_rufescens).
+compound(bubulcus_ibis).
+compound(butorides_virescens).
+compound(nycticorax_nycticorax).
+compound(nyctanassa_violacea).
+compound(eudocimus_albus).
+compound(plegadis_falcinellus).
+compound(plegadis_chihi).
+compound(platalea_ajaja).
 
 % --------------------------------------------------------------------------------
 
@@ -179,9 +201,30 @@ hasCommonName(N, C) :- commonName(N, C).
 % ----------------------------------------
 
 hasCommonName(G, S, C) :- genus(G), 
-							species(S), 
-								commonName(string_concat(G,S), C).
+							species(S). 
+								
 
+% ----------------------------------------
 
+synonym(A, B) :- commonName(A, B); commonName(B, A).
 
-
+% ----------------------------------------
+% needs the "else" part still
+countSpecies(A, N) :- A == pelecaniformes, N == 18;
+						A == pelecanidae; N == 2; 
+							A == ardeidae, N == 12;
+							  A == threskiornithdae, N == 4;
+								A == pelecanus, N == 2;
+									A == botaurus; N == 1;
+							  			A == ixobrychus, N == 1;
+							  				A == ardea, N == 2;
+							  					A == egretta, N == 4;
+							  						A == bubulcus, N == 1;
+							  							A == butorides, N == 1;
+							  								A == nycticorax, N == 1;
+							  									A == nyctanassa, N == 1;
+							  										A == eudocimus, N == 1;
+							  											A == plegadis, N == 2;
+							  												A == platalea, N == 1;
+							  													compound(A), N == 1.
+							  														
