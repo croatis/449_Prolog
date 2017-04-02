@@ -36,26 +36,26 @@ ofFamily(platalea, threskiornithdae).
 
 
 % Read as: X is of genus Y. No common names specified for genus. Spaced out by genus.
-ofGenus(erythrorhynchos, pelecanus).
-ofGenus(occidentalis, pelecanus).
+ofGenus(pelecanus_erythrorhynchos, pelecanus).
+ofGenus(pelecanus_occidentalis, pelecanus).
 
-ofGenus(lentiginosus, botaurus).
-ofGenus(exilis, ixobrychus).
-ofGenus(herodias, ardea).
-ofGenus(alba, ardea).
-ofGenus(thula, egretta).
-ofGenus(caerulea, egretta).
-ofGenus(tricolor, egretta).
-ofGenus(rufescens, egretta).
-ofGenus(ibis, bubulcus).
-ofGenus(virescens, butorides).
-ofGenus(nycticorax, nycticorax).
+ofGenus(botaurus_lentiginosus, botaurus).
+ofGenus(ixobrychus_exilis, ixobrychus).
+ofGenus(ardea_herodias, ardea).
+ofGenus(ardea_alba, ardea).
+ofGenus(egretta_thula, egretta).
+ofGenus(egretta_caerulea, egretta).
+ofGenus(egretta_tricolor, egretta).
+ofGenus(egretta_rufescens, egretta).
+ofGenus(bubulcus_ibis, bubulcus).
+ofGenus(butorides_virescens, butorides).
+ofGenus(nycticorax_nycticorax, nycticorax).
 ofGenus(violacea, nyctanassa).
 
-ofGenus(albus, eudocimus).
-ofGenus(falcinellus, plegadis).
-ofGenus(chihi, plegadis).
-ofGenus(ajaja, platalea).
+ofGenus(eudocimus_albus, eudocimus).
+ofGenus(plegadis_falcinellus, plegadis).
+ofGenus(plegadis_chihi, plegadis).
+ofGenus(platalea_ajaja, platalea).
 
 % Scientific names and their common names; spaced out by common name.
 commonName(pelecanus, pelican).
@@ -202,13 +202,26 @@ hasCommonName(N, C) :- commonName(N, C).
 
 hasCommonName(G, S, C) :- genus(G), 
 							species(S). 
-								
+
+% ----------------------------------------
+							  														
+isaStrict(A, B) :- hasParent(A, B);
+					hasParent(A, X), hasParent(X, B);
+						hasParent(A, X), hasParent(X, Y), hasParent(Y, B).								
+
+% ----------------------------------------
+% needs support for common names.
+
+isa(A, B) :- hasParent(A, B);
+				hasParent(A, X), hasParent(X, B);
+					hasParent(A, X), hasParent(X, Y), hasParent(Y, B).
 
 % ----------------------------------------
 
 synonym(A, B) :- commonName(A, B); commonName(B, A).
 
 % ----------------------------------------
+
 % needs the "else" part still
 countSpecies(A, N) :- A == pelecaniformes, N == 18;
 						A == pelecanidae; N == 2; 
@@ -227,4 +240,7 @@ countSpecies(A, N) :- A == pelecaniformes, N == 18;
 							  											A == plegadis, N == 2;
 							  												A == platalea, N == 1;
 							  													compound(A), N == 1.
-							  														
+
+% ----------------------------------------
+
+
