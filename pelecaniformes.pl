@@ -15,23 +15,24 @@ ofFamily(botaurus, ardeidae).
 ofFamily(ixobrychus, ardeidae).
 
 % herons
-ofFamily(ardea, ardeidae). 
-ofFamily(egretta, ardeidae). % can be a heron or an egret
-ofFamily(butorides, ardeidae). 
+ofFamily(ardea, ardeidae).
+ofFamily(egretta, ardeidae).
+% can be a heron or an egret
+ofFamily(butorides, ardeidae).
 % egrets
-ofFamily(egret, ardeidae).
-ofFamily(bubulcus, ardeidae). 
+% ofFamily(egret, ardeidae).
+ofFamily(bubulcus, ardeidae).
 % nightHerons
-ofFamily(nightHeron, ardeidae).
-ofFamily(nycticorax, ardeidae). 
+% ofFamily(nightHeron, ardeidae).
+ofFamily(nycticorax, ardeidae).
 ofFamily(nyctanassa, ardeidae).
 
 % ibis'
-ofFamily(ibis, threskiornithdae).
+% ofFamily(ibis, threskiornithdae).
 ofFamily(eudocimus, threskiornithdae).
 ofFamily(plegadis, threskiornithdae).
 % spoonbills
-ofFamily(spoonbill, threskiornithdae).
+% ofFamily(spoonbill, threskiornithdae).
 ofFamily(platalea, threskiornithdae).
 
 
@@ -58,7 +59,7 @@ ofGenus(plegadis_chihi, plegadis).
 ofGenus(platalea_ajaja, platalea).
 
 
-% For common species parents references'. Genus refrences Read as: X is of genus Y. 
+% For common species parents references'. Genus refrences Read as: X is of genus Y.
 ofGenusNS(erythrorhynchos, pelecanus).
 ofGenusNS(occidentalis, pelecanus).
 
@@ -79,69 +80,148 @@ ofGenusNS(albus, eudocimus).
 ofGenusNS(falcinellus, plegadis).
 ofGenusNS(chihi, plegadis).
 ofGenusNS(ajaja, platalea).
+
+% Common names
+
+commonName(pelican).
+commonName(bittern).
+commonName(heron).
+commonName(egret).
+commonName(nightHeron).
+commonName(ibis).
+commonName(spoonbill).
+commonName(americanWhitePelican).
+commonName(brownPelican).
+commonName(americanBittern).
+commonName(leastBittern).
+commonName(greatBlueHeron).
+commonName(greatEgret).
+commonName(snowyEgret).
+commonName(littleBlueHeron).
+commonName(tricoloredHeron).
+commonName(reddishEgret).
+commonName(cattleEgret).
+commonName(greenHerron).
+commonName(blackCrownedNightHeron).
+commonName(yellowCrownedNightHeron).
+commonName(whiteIbis).
+commonName(glossyIbis).
+commonName(whiteFacedIbis).
+commonName(roseateSpoonbill).
+
 % Scientific names and their common names; spaced out by common name.
-commonName(pelecanus, pelican).
+commonNameG(pelecanus, pelican).
 
-commonName(botaurus, bittern).
-commonName(ixobrychus, bittern).
+commonNameG(botaurus, bittern).
+commonNameG(ixobrychus, bittern).
 
-commonName(ardea, heron).
-commonName(egretta, heron).
-commonName(butorides, heron).
+commonNameG(ardea, heron).
+commonNameG(egretta, heron).
+commonNameG(butorides, heron).
 
-commonName(egretta, egret).
-commonName(bubulcus, egret).
-commonName(egret, heron).
-commonName(heron, egret).
+commonNameG(egretta, egret).
+commonNameG(bubulcus, egret).
 
-commonName(nycticorax, nightHeron).
-commonName(nyctanassa, nightHeron).
+commonNameG(nycticorax, nightHeron).
+commonNameG(nyctanassa, nightHeron).
 
-commonName(eudocimus, ibis).
-commonName(plegadis, ibis).
+commonNameG(eudocimus, ibis).
+commonNameG(plegadis, ibis).
 
-commonName(platalea, spoonbill).
+commonNameG(platalea, spoonbill).
 
 % Species section
-commonName(pelecanus_erythrorhynchos, americanWhitePelican).
-commonName(pelecanus_occidentalis, brownPelican).
-commonName(botaurus_lentiginosus, americanBittern).
-commonName(ixobrychus_exilis, leastBittern).
-commonName(ardea_herodias, greatBlueHeron).
-commonName(ardea_alba, greatEgret).
-commonName(egretta_thula, snowyEgret).
-commonName(egretta_caerulea, littleBlueHeron).
-commonName(egretta_tricolor, tricoloredHeron).
-commonName(egretta_rufescens, reddishEgret).
-commonName(bubulcus_ibis, cattleEgret).
-commonName(butorides_virescens, greenHerron).
-commonName(nycticorax_nycticorax, blackCrownedNightHeron).
-commonName(nyctanassa_violacea, yellowCrownedNightHeron).
-commonName(eudocimus_albus, whiteIbis).
-commonName(plegadis_falcinellus, glossyIbis).
-commonName(plegadis_chihi, whiteFacedIbis).
-commonName(platalea_ajaja, roseateSpoonbill).
+commonNameS(erythrorhynchos, americanWhitePelican).
+commonNameS(occidentalis, brownPelican).
+commonNameS(lentiginosus, americanBittern).
+commonNameS(exilis, leastBittern).
+commonNameS(herodias, greatBlueHeron).
+commonNameS(alba, greatEgret).
+commonNameS(thula, snowyEgret).
+commonNameS(caerulea, littleBlueHeron).
+commonNameS(tricolor, tricoloredHeron).
+commonNameS(rufescens, reddishEgret).
+commonNameS(ibis, cattleEgret).
+commonNameS(virescens, greenHerron).
+commonNameS(nycticorax, blackCrownedNightHeron).
+commonNameS(violacea, yellowCrownedNightHeron).
+commonNameS(albus, whiteIbis).
+commonNameS(falcinellus, glossyIbis).
+commonNameS(chihi, whiteFacedIbis).
+commonNameS(ajaja, roseateSpoonbill).
 
-% Possible compound species names.
+% Compound species section
+commonNameC(pelecanus_erythrorhynchos, americanWhitePelican).
+commonNameC(pelecanus_occidentalis, brownPelican).
+commonNameC(botaurus_lentiginosus, americanBittern).
+commonNameC(ixobrychus_exilis, leastBittern).
+commonNameC(ardea_herodias, greatBlueHeron).
+commonNameC(ardea_alba, greatEgret).
+commonNameC(egretta_thula, snowyEgret).
+commonNameC(egretta_caerulea, littleBlueHeron).
+commonNameC(egretta_tricolor, tricoloredHeron).
+commonNameC(egretta_rufescens, reddishEgret).
+commonNameC(bubulcus_ibis, cattleEgret).
+commonNameC(butorides_virescens, greenHerron).
+commonNameC(nycticorax_nycticorax, blackCrownedNightHeron).
+commonNamec(nyctanassa_violacea, yellowCrownedNightHeron).
+commonNameC(eudocimus_albus, whiteIbis).
+commonNameC(plegadis_falcinellus, glossyIbis).
+commonNameC(plegadis_chihi, whiteFacedIbis).
+commonNameC(platalea_ajaja, roseateSpoonbill).
 
-compound(pelecanus_erythrorhynchos).
-compound(pelecanus_occidentalis).
-compound(botaurus_lentiginosus).
-compound(ixobrychus_exilis).
-compound(ardea_herodias).
-compound(ardea_alba).
-compound(egretta_thula).
-compound(egretta_caerulea).
-compound(egretta_tricolor).
-compound(egretta_rufescens).
-compound(bubulcus_ibis).
-compound(butorides_virescens).
-compound(nycticorax_nycticorax).
-compound(nyctanassa_violacea).
-compound(eudocimus_albus).
-compound(plegadis_falcinellus).
-compound(plegadis_chihi).
-compound(platalea_ajaja).
+% Possible compoundName species names.
+
+compoundName(pelecanus_erythrorhynchos).
+compoundName(pelecanus_occidentalis).
+compoundName(botaurus_lentiginosus).
+compoundName(ixobrychus_exilis).
+compoundName(ardea_herodias).
+compoundName(ardea_alba).
+compoundName(egretta_thula).
+compoundName(egretta_caerulea).
+compoundName(egretta_tricolor).
+compoundName(egretta_rufescens).
+compoundName(bubulcus_ibis).
+compoundName(butorides_virescens).
+compoundName(nycticorax_nycticorax).
+compoundName(nyctanassa_violacea).
+compoundName(eudocimus_albus).
+compoundName(plegadis_falcinellus).
+compoundName(plegadis_chihi).
+compoundName(platalea_ajaja).
+
+% bird habitats, guessed on which is prefered for some based on information online
+preferedHabitat(pelecanus_erythrorhynchos, ocean).
+preferedHabitat(pelecanus_occidentalis, ocean).
+preferedHabitat(botaurus_lentiginosus, marsh).
+preferedHabitat(ixobrychus_exilis, marsh).
+preferedHabitat(ardea_herodias, lakePond).
+preferedHabitat(ardea_alba, marsh).
+preferedHabitat(egretta_thula, ocean).
+preferedHabitat(egretta_caerulea, lakePond).
+preferedHabitat(egretta_tricolor, marsh).
+preferedHabitat(egretta_rufescens, lakePond).
+preferedHabitat(bubulcus_ibis, lakePond).
+preferedHabitat(butorides_virescens, marsh).
+preferedHabitat(nycticorax_nycticorax, marsh).
+preferedHabitat(nyctanassa_violacea, marsh).
+preferedHabitat(eudocimus_albus, marsh).
+preferedHabitat(plegadis_falcinellus, marsh).
+preferedHabitat(plegadis_chihi, marsh).
+preferedHabitat(platalea_ajaja, marsh).
+
+% only include birds that range to Alberta or to Canada
+range(pelecanus_erythrorhynchos, canada).
+range(botaurus_lentiginosus, canada).
+range(ardea_herodias, canada).
+range(ardea_alba, canada).
+range(bubulcus_ibis, canada).
+range(butorides_virescens, canada).
+range(nycticorax_nycticorax, alberta).
+range(plegadis_chihi, alberta).
+range(nycticorax_nycticorax, canada).
+range(plegadis_chihi, canada).
 
 % --------------------------------------------------------------------------------
 
@@ -166,13 +246,13 @@ genus(pelecanus).
 genus(botaurus).
 genus(ixobrychus).
 % herons
-genus(ardea). 
+genus(ardea).
 genus(egretta). % can be a heron or an egret
-genus(butorides). 
+genus(butorides).
 % egret
-genus(bubulcus, ardeidae). 
+genus(bubulcus, ardeidae).
 % nightHerons
-genus(nycticorax). 
+genus(nycticorax).
 genus(nyctanassa).
 
 % Threskiornithdae
@@ -210,58 +290,110 @@ species(ajaja, platalea).
 
 % ----------------------------------------
 
-hasParent(A, B) :- ofOrder(A, B); ofFamily(A,B); ofGenusNS(A, B).
+hasParent(A, B) :- \+ compoundName(A),
+									 ofOrder(A, B);
+									 ofFamily(A, B);
+									 ofGenusNS(A, B).
 
 % ----------------------------------------
 
-hasParent2(A, B) :- ofOrder(A, B); ofFamily(A,B); ofGenus(A, B).
+hasParent2(A, B) :- \+ species(A),
+										ofOrder(A, B);
+										ofFamily(A, B);
+										ofGenus(A, B).
 
 % ----------------------------------------
 
-hasCommonName(N, C) :- commonName(N, C).
+hasCommonName(N, C) :- \+ species(N),
+											 commonNameG(N, C);
+											 commonNameC(N, C).
 
 % ----------------------------------------
 
-hasCommonName(G, S, C) :- genus(G), 
-							species(S). 
-
-% ----------------------------------------
-							  														
-isaStrict(A, B) :- hasParent2(A, B);
-					hasParent2(A, X), hasParent2(X, B);
-						hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B).								
+hasCommonName(G, S, C) :- genus(G),
+													species(S),
+													commonNameS(S, C).
 
 % ----------------------------------------
 
-isa(A, B) :- hasParent(A, B);
-				hasParent(A, X), hasParent(X, B);
-					hasParent(A, X), hasParent(X, Y), hasParent(Y, B);.
+hasSciName(C, N) :- commonNameC(N, C);
+										commonNameG(N, C).
 
 % ----------------------------------------
 
-synonym(A, B) :- commonName(A, B); commonName(B, A).
+hasCompoundName(G, S, N) :- genus(G),
+														species(S),
+														compoundName(N),
+														atom_concat(G, '_', X),
+														atom_concat(X, S, Y),
+														N == Y.
 
 % ----------------------------------------
 
-% needs the "else" part still
-countSpecies(A, N) :- A == pelecaniformes, N == 18;
-						A == pelecanidae; N == 2; 
-							A == ardeidae, N == 12;
-							  A == threskiornithdae, N == 4;
-								A == pelecanus, N == 2;
-									A == botaurus; N == 1;
-							  			A == ixobrychus, N == 1;
-							  				A == ardea, N == 2;
-							  					A == egretta, N == 4;
-							  						A == bubulcus, N == 1;
-							  							A == butorides, N == 1;
-							  								A == nycticorax, N == 1;
-							  									A == nyctanassa, N == 1;
-							  										A == eudocimus, N == 1;
-							  											A == plegadis, N == 2;
-							  												A == platalea, N == 1;
-							  													compound(A), N == 1.
+isaStrict(A, B) :- (hasParent2(A, B);
+									 hasParent2(A, X), hasParent2(X, B);
+									 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B)),
+									 \+ commonName(A),
+									 \+ commonName(B).
 
 % ----------------------------------------
 
+isCommon(X, Y) :- commonName(X),
+							 		hasSciName(X, N),
+							 		Y = N.
 
+isa(A, B) :- isCommon(A, D), isa(D, B);
+						 isCommon(B, E), isa(A, E);
+						 hasParent2(A, B);
+						 hasParent2(A, X), hasParent2(X, B);
+						 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B).
+
+% ----------------------------------------
+
+synonym(A, B) :- hasSciName(A, B);
+								 hasSciName(B, A);
+								 hasSciName(A, D), hasSciName(B, D).
+
+% ----------------------------------------
+
+countSpecies(A, N) :- nonvar(N), !, fail.
+countSpecies(pelecaniformes, N) :- !, N = 18.
+countSpecies(pelecanidae, N) :- !, N = 2.
+countSpecies(ardeidae, N) :- !, N = 12.
+countSpecies(threskiornithdae, N) :- !, N = 4.
+countSpecies(pelecanus, N) :- !, N = 2.
+countSpecies(botaurus, N) :- !, N = 1.
+countSpecies(ixobrychus, N) :- !, N = 1.
+countSpecies(ardea, N) :- !, N = 2.
+countSpecies(egretta, N) :- !, N = 4.
+countSpecies(bubulcus, N) :- !, N = 1.
+countSpecies(butorides, N) :- !, N = 1.
+countSpecies(nycticorax, N) :- !, N = 1.
+countSpecies(nyctanassa, N) :- !, N = 1.
+countSpecies(eudocimus, N) :- !, N = 1.
+countSpecies(plegadis, N) :- !, N = 2.
+countSpecies(platalea, N) :- !, N = 1.
+countSpecies(A, N) :-	compoundName(A), N = 1.
+countSpecies(A, N) :- N = 0.
+
+% ----------------------------------------
+
+rangesTo(A, P) :- nonvar(A),
+									((order(A), ofOrder(X, A), ofFamily(Y, X), ofGenus(Z, Y), rangesTo(Z, P));
+									(family(A), ofFamily(X, A), ofGenus(Y, X), rangesTo(Y, P));
+									(genus(A), ofGenus(X, A), rangesTo(X, P))).
+rangesTo(A, P) :- nonvar(A), compoundName(A),
+									range(A, P).
+rangesTo(A, P) :- range(A, P).
+
+% ----------------------------------------
+
+habitat(A, P) :- nonvar(A),
+								 ((order(A), ofOrder(X, A), ofFamily(Y, X), ofGenus(Z, Y), habitat(Z, P));
+								 (family(A), ofFamily(X, A), ofGenus(Y, X), habitat(Y, P));
+								 (genus(A), ofGenus(X, A), habitat(X, P))).
+habitat(A, P) :- nonvar(A), compoundName(A),
+									preferedHabitat(A, P).
+habitat(A, P) :- preferedHabitat(A, P).
+
+% ----------------------------------------
