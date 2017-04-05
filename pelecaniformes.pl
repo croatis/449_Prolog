@@ -326,10 +326,11 @@ genus(botaurus).
 genus(ixobrychus).
 % herons
 genus(ardea).
-genus(egretta). % can be a heron or an egret
-genus(butorides).
+genus(egretta).
 % egret
-genus(bubulcus, ardeidae).
+genus(bubulcus).
+% can be a heron or an egret
+genus(butorides).
 % nightHerons
 genus(nycticorax).
 genus(nyctanassa).
@@ -340,6 +341,8 @@ genus(eudocimus).
 genus(plegadis).
 % spoonbills
 genus(platalea).
+
+
 
 % ----------------------------------------
 
@@ -362,12 +365,14 @@ species(nycticorax).
 species(violacea).
 
 % Threskiornithdae
-species(albus, eudocimus).
-species(falcinellus, plegadis).
-species(chihi, plegadis).
-species(ajaja, platalea).
+species(albus).
+species(falcinellus).
+species(chihi).
+species(ajaja).
 
 % ----------------------------------------
+
+hasParent(X, Y) :- ofOrder(X, Y).	% Previously, would not return order
 
 hasParent(A, B) :- \+ compoundName(A),
 									 ofOrder(A, B);
