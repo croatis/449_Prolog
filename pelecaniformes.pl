@@ -397,3 +397,117 @@ habitat(A, P) :- nonvar(A), compoundName(A),
 habitat(A, P) :- preferedHabitat(A, P).
 
 % ----------------------------------------
+
+preferedFood(pelecanus_erythrorhynchos, fish).
+preferedFood(pelecanus_occidentalis, fish).
+preferedFood(botaurus_lentiginosus, fish).
+preferedFood(ixobrychus_exilis, fish).
+preferedFood(ardea_herodias, fish).
+preferedFood(ardea_alba, fish).
+preferedFood(egretta_thula, fish).
+preferedFood(egretta_caerulea, fish).
+preferedFood(egretta_tricolor, fish).
+preferedFood(egretta_rufescens, fish).
+preferedFood(bubulcus_ibis, insects).
+preferedFood(butorides_virescens, fish).
+preferedFood(nycticorax_nycticorax, fish).
+preferedFood(nyctanassa_violacea, insects).
+preferedFood(eudocimus_albus, insects).
+preferedFood(plegadis_falcinellus, insects).
+preferedFood(plegadis_chihi, insects).
+preferedFood(platalea_ajaja, fish).
+
+food(A, P) :- nonvar(A),
+								 ((order(A), ofOrder(X, A), ofFamily(Y, X), ofGenus(Z, Y), food(Z, P));
+								 (family(A), ofFamily(X, A), ofGenus(Y, X), food(Y, P));
+								 (genus(A), ofGenus(X, A), food(X, P))).
+food(A, P) :- nonvar(A), compoundName(A),
+									preferedFood(A, P).
+food(A, P) :- preferedFood(A, P).
+
+% ----------------------------------------
+
+preferedNesting(pelecanus_erythrorhynchos, ground).
+preferedNesting(pelecanus_occidentalis, tree).
+preferedNesting(botaurus_lentiginosus, ground).
+preferedNesting(ixobrychus_exilis, ground).
+preferedNesting(ardea_herodias, tree).
+preferedNesting(ardea_alba, tree).
+preferedNesting(egretta_thula, tree).
+preferedNesting(egretta_caerulea, tree).
+preferedNesting(egretta_tricolor, tree).
+preferedNesting(egretta_rufescens, tree).
+preferedNesting(bubulcus_ibis, tree).
+preferedNesting(butorides_virescens, tree).
+preferedNesting(nycticorax_nycticorax, tree).
+preferedNesting(nyctanassa_violacea, tree).
+preferedNesting(eudocimus_albus, tree).
+preferedNesting(plegadis_falcinellus, ground).
+preferedNesting(plegadis_chihi, ground).
+preferedNesting(platalea_ajaja, tree).
+
+nesting(A, P) :- nonvar(A),
+								 ((order(A), ofOrder(X, A), ofFamily(Y, X), ofGenus(Z, Y), nesting(Z, P));
+								 (family(A), ofFamily(X, A), ofGenus(Y, X), nesting(Y, P));
+								 (genus(A), ofGenus(X, A), nesting(X, P))).
+nesting(A, P) :- nonvar(A), compoundName(A),
+									preferedNesting(A, P).
+nesting(A, P) :- preferedNesting(A, P).
+
+% ----------------------------------------
+
+preferedBehavior(pelecanus_erythrorhynchos, surfaceDive).
+preferedBehavior(pelecanus_occidentalis, aerialDive).
+preferedBehavior(botaurus_lentiginosus, stalking).
+preferedBehavior(ixobrychus_exilis, stalking).
+preferedBehavior(ardea_herodias, stalking).
+preferedBehavior(ardea_alba, stalking).
+preferedBehavior(egretta_thula, stalking).
+preferedBehavior(egretta_caerulea, stalking).
+preferedBehavior(egretta_tricolor, stalking).
+preferedBehavior(egretta_rufescens, stalking).
+preferedBehavior(bubulcus_ibis, groundForager).
+preferedBehavior(butorides_virescens, stalking).
+preferedBehavior(nycticorax_nycticorax, stalking).
+preferedBehavior(nyctanassa_violacea, stalking).
+preferedBehavior(eudocimus_albus, probing).
+preferedBehavior(plegadis_falcinellus, probing).
+preferedBehavior(plegadis_chihi, probing).
+preferedBehavior(platalea_ajaja, probing).
+
+behavior(A, P) :- nonvar(A),
+								 ((order(A), ofOrder(X, A), ofFamily(Y, X), ofGenus(Z, Y), behavior(Z, P));
+								 (family(A), ofFamily(X, A), ofGenus(Y, X), behavior(Y, P));
+								 (genus(A), ofGenus(X, A), behavior(X, P))).
+behavior(A, P) :- nonvar(A), compoundName(A),
+									preferedBehavior(A, P).
+behavior(A, P) :- preferedBehavior(A, P).
+
+% ----------------------------------------
+
+conservationStatus(pelecanus_erythrorhynchos, lc).
+conservationStatus(pelecanus_occidentalis, lc).
+conservationStatus(botaurus_lentiginosus, lc).
+conservationStatus(ixobrychus_exilis, lc).
+conservationStatus(ardea_herodias, lc).
+conservationStatus(ardea_alba, lc).
+conservationStatus(egretta_thula, lc).
+conservationStatus(egretta_caerulea, lc).
+conservationStatus(egretta_tricolor, lc).
+conservationStatus(egretta_rufescens, nt).
+conservationStatus(bubulcus_ibis, lc).
+conservationStatus(butorides_virescens, lc).
+conservationStatus(nycticorax_nycticorax, lc).
+conservationStatus(nyctanassa_violacea, lc).
+conservationStatus(eudocimus_albus, lc).
+conservationStatus(plegadis_falcinellus, lc).
+conservationStatus(plegadis_chihi, lc).
+conservationStatus(platalea_ajaja, lc).
+
+conservation(A, P) :- nonvar(A),
+								 ((order(A), ofOrder(X, A), ofFamily(Y, X), ofGenus(Z, Y), conservation(Z, P));
+								 (family(A), ofFamily(X, A), ofGenus(Y, X), conservation(Y, P));
+								 (genus(A), ofGenus(X, A), conservation(X, P))).
+conservation(A, P) :- nonvar(A), compoundName(A),
+									conservationStatus(A, P).
+conservation(A, P) :- conservationStatus(A, P).
