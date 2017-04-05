@@ -164,7 +164,7 @@ commonNameC(egretta_rufescens, reddishEgret).
 commonNameC(bubulcus_ibis, cattleEgret).
 commonNameC(butorides_virescens, greenHeron).
 commonNameC(nycticorax_nycticorax, blackCrownedNightHeron).
-commonNamec(nyctanassa_violacea, yellowCrownedNightHeron).
+commonNameC(nyctanassa_violacea, yellowCrownedNightHeron).
 commonNameC(eudocimus_albus, whiteIbis).
 commonNameC(plegadis_falcinellus, glossyIbis).
 commonNameC(plegadis_chihi, whiteFacedIbis).
@@ -192,17 +192,17 @@ compoundName(plegadis_chihi).
 compoundName(platalea_ajaja).
 
 % bird habitats, guessed on which is prefered for some based on information online
-preferedHabitat(pelecanus_erythrorhynchos, ocean).
+preferedHabitat(pelecanus_erythrorhynchos, lakePond).
 preferedHabitat(pelecanus_occidentalis, ocean).
 preferedHabitat(botaurus_lentiginosus, marsh).
 preferedHabitat(ixobrychus_exilis, marsh).
-preferedHabitat(ardea_herodias, lakePond).
+preferedHabitat(ardea_herodias, marsh).
 preferedHabitat(ardea_alba, marsh).
-preferedHabitat(egretta_thula, ocean).
-preferedHabitat(egretta_caerulea, lakePond).
+preferedHabitat(egretta_thula, marsh).
+preferedHabitat(egretta_caerulea, marsh).
 preferedHabitat(egretta_tricolor, marsh).
-preferedHabitat(egretta_rufescens, lakePond).
-preferedHabitat(bubulcus_ibis, lakePond).
+preferedHabitat(egretta_rufescens, marsh).
+preferedHabitat(bubulcus_ibis, marsh).
 preferedHabitat(butorides_virescens, marsh).
 preferedHabitat(nycticorax_nycticorax, marsh).
 preferedHabitat(nyctanassa_violacea, marsh).
@@ -212,16 +212,18 @@ preferedHabitat(plegadis_chihi, marsh).
 preferedHabitat(platalea_ajaja, marsh).
 
 % only include birds that range to Alberta or to Canada
+
+range(ardea_herodias, alberta).
+range(nycticorax_nycticorax, alberta).
+range(botaurus_lentiginosus, alberta).
+range(pelecanus_erythrorhynchos, alberta).
 range(pelecanus_erythrorhynchos, canada).
 range(botaurus_lentiginosus, canada).
 range(ardea_herodias, canada).
 range(ardea_alba, canada).
 range(bubulcus_ibis, canada).
 range(butorides_virescens, canada).
-range(nycticorax_nycticorax, alberta).
-range(plegadis_chihi, alberta).
 range(nycticorax_nycticorax, canada).
-range(plegadis_chihi, canada).
 
 % food info from "All About Birds"
 preferedFood(pelecanus_erythrorhynchos, fish).
@@ -388,15 +390,19 @@ hasParent2(A, B) :- \+ species(A),
 
 % ----------------------------------------
 
-hasCommonName(N, C) :- \+ species(N),
-											 commonNameG(N, C);
-											 commonNameC(N, C).
+hasCommonName(N, C) :-	genus(N),
+								commonNameG(N, C);
+								commonNameC(N,C);
+						\+ species(N),
+								commonNameG(N, C);
+								commonNameC(N, C).
 
 % ----------------------------------------
 
-hasCommonName(G, S, C) :- genus(G),
-													species(S),
-													commonNameS(S, C).
+hasCommonName(G, S, C) :-	ofGenusNS(S, G),
+											genus(G),
+											species(S),
+											commonNameS(S, C).
 
 % ----------------------------------------
 
@@ -436,7 +442,8 @@ isa(A, B) :- isCommon(A, D), isa(D, B);
 
 synonym(A, B) :- hasSciName(A, B);
 								 hasSciName(B, A);
-								 hasSciName(A, D), hasSciName(B, D).
+								 hasSciName(A, D), hasSciName(B, D),
+								 A \== B.
 
 % ----------------------------------------
 
@@ -468,6 +475,7 @@ rangesTo(A, P) :- nonvar(A),
 									(genus(A), ofGenus(X, A), rangesTo(X, P))).
 rangesTo(A, P) :- nonvar(A), compoundName(A),
 									range(A, P).
+
 rangesTo(A, P) :- range(A, P).
 
 % ----------------------------------------
