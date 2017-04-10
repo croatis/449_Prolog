@@ -3,7 +3,7 @@
 % Read as: X is of order Y.
 ofOrder(pelecanidae, pelecaniformes).
 ofOrder(ardeidae, pelecaniformes).
-ofOrder(threskiornithdae, pelecaniformes).
+ofOrder(threskiornithidae, pelecaniformes).
 
 
 % Read as: X is of gamily Y.
@@ -28,12 +28,12 @@ ofFamily(nycticorax, ardeidae).
 ofFamily(nyctanassa, ardeidae).
 
 % ibis'
-% ofFamily(ibis, threskiornithdae).
-ofFamily(eudocimus, threskiornithdae).
-ofFamily(plegadis, threskiornithdae).
+% ofFamily(ibis, threskiornithidae).
+ofFamily(eudocimus, threskiornithidae).
+ofFamily(plegadis, threskiornithidae).
 % spoonbills
-% ofFamily(spoonbill, threskiornithdae).
-ofFamily(platalea, threskiornithdae).
+% ofFamily(spoonbill, threskiornithidae).
+ofFamily(platalea, threskiornithidae).
 
 
 % Read as: X is of genus Y. No common names specified for genus. Spaced out by genus.
@@ -314,7 +314,7 @@ order(pelecaniformes).
 
 family(pelecanidae).
 family(ardeidae).
-family(threskiornithdae).
+family(threskiornithidae).
 
 % ----------------------------------------
 
@@ -337,7 +337,7 @@ genus(butorides).
 genus(nycticorax).
 genus(nyctanassa).
 
-% Threskiornithdae
+% threskiornithidae
 % ibis'
 genus(eudocimus).
 genus(plegadis).
@@ -366,7 +366,7 @@ species(virescens).
 species(nycticorax).
 species(violacea).
 
-% Threskiornithdae
+% threskiornithidae
 species(albus).
 species(falcinellus).
 species(chihi).
@@ -451,7 +451,7 @@ countSpecies(A, N) :- nonvar(N), !, fail.
 countSpecies(pelecaniformes, N) :- !, N = 18.
 countSpecies(pelecanidae, N) :- !, N = 2.
 countSpecies(ardeidae, N) :- !, N = 12.
-countSpecies(threskiornithdae, N) :- !, N = 4.
+countSpecies(threskiornithidae, N) :- !, N = 4.
 countSpecies(pelecanus, N) :- !, N = 2.
 countSpecies(botaurus, N) :- !, N = 1.
 countSpecies(ixobrychus, N) :- !, N = 1.
@@ -527,3 +527,6 @@ conservation(A, P) :- nonvar(A),
 conservation(A, P) :- nonvar(A), compoundName(A),
 									conservationStatus(A, P).
 conservation(A, P) :- conservationStatus(A, P).
+
+% -----------------------------------------
+
