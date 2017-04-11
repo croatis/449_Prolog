@@ -1,12 +1,12 @@
 Working incorrectly
 ---------------------------------------------------
 
-hasParent2(X,Y) ---output 
-	expected:
-	[[ardea,ardeidae],[ardea_alba,ardea],[ardea_herodias,ardea],[ardeidae,pelecaniformes],[botaurus,ardeidae],[botaurus_lentiginosus,botaurus],[bubulcus,ardeidae],[bubulcus_ibis,bubulcus],[butorides,ardeidae],[butorides_virescens,butorides],[egretta,ardeidae],[egretta_caerulea,egretta],[egretta_rufescens,egretta],[egretta_thula,egretta],[egretta_tricolor,egretta],[eudocimus,threskiornithidae],[eudocimus_albus,eudocimus],[ixobrychus,ardeidae],[ixobrychus_exilis,ixobrychus],[nyctanassa,ardeidae],[nyctanassa_violacea,nyctanassa],[nycticorax,ardeidae],[nycticorax_nycticorax,nycticorax],[pelecanidae,pelecaniformes],[pelecanus,pelecanidae],[pelecanus_erythrorhynchos,pelecanus],[pelecanus_occidentalis,pelecanus],[platalea,threskiornithidae],[platalea_ajaja,platalea],[plegadis,threskiornithidae],[plegadis_chihi,plegadis],[plegadis_falcinellus,plegadis],[threskiornithidae,pelecaniformes]]
-	but got:
-	[[ardea,ardeidae],[ardea_alba,ardea],[ardea_herodias,ardea],[botaurus,ardeidae],[botaurus_lentiginosus,botaurus],[bubulcus,ardeidae],[bubulcus_ibis,bubulcus],[butorides,ardeidae],[butorides_virescens,butorides],[egretta,ardeidae],[egretta_caerulea,egretta],[egretta_rufescens,egretta],[egretta_thula,egretta],[egretta_tricolor,egretta],[eudocimus,threskiornithidae],[eudocimus_albus,eudocimus],[ixobrychus,ardeidae],[ixobrychus_exilis,ixobrychus],[nyctanassa,ardeidae],[nycticorax,ardeidae],[nycticorax_nycticorax,nycticorax],[pelecanus,pelecanidae],[pelecanus_erythrorhynchos,pelecanus],[pelecanus_occidentalis,pelecanus],[platalea,threskiornithidae],[platalea_ajaja,platalea],[plegadis,threskiornithidae],[plegadis_chihi,plegadis],[plegadis_falcinellus,plegadis],[violacea,nyctanassa]]
+[botaurus,ardeidae],[botaurus_lentiginosus,botaurus],[bubulcus,ardeidae],[bubulcus_ibis,bubulcus],[butorides,ardeidae],[butorides_virescens,butorides],[egretta,ardeidae],[egretta_caerulea,egretta],[egretta_rufescens,egretta],[egretta_thula,egretta],[egretta_tricolor,egretta],[eudocimus,threskiornithidae],[eudocimus_albus,eudocimus],[ixobrychus,ardeidae],[ixobrychus_exilis,ixobrychus],[nyctanassa,ardeidae],[nyctanassa_violacea,nyctanassa],[nycticorax,ardeidae],[nycticorax_nycticorax,nycticorax],[pelecanus,pelecanidae],[pelecanus_erythrorhynchos,pelecanus],[pelecanus_occidentalis,pelecanus],[platalea,threskiornithidae],[platalea_ajaja,platalea],[plegadis,threskiornithidae],[plegadis_chihi,plegadis],[plegadis_falcinellus,plegadis],]
+[botaurus,ardeidae],[botaurus_lentiginosus,botaurus],[bubulcus,ardeidae],[bubulcus_ibis,bubulcus],[butorides,ardeidae],[butorides_virescens,butorides],[egretta,ardeidae],[egretta_caerulea,egretta],[egretta_rufescens,egretta],[egretta_thula,egretta],[egretta_tricolor,egretta],[eudocimus,threskiornithidae],[eudocimus_albus,eudocimus],[ixobrychus,ardeidae],[ixobrychus_exilis,ixobrychus],[nyctanassa,ardeidae],[nyctanassa_violacea,nyctanassa],[nycticorax,ardeidae],[nycticorax_nycticorax,nycticorax],[pelecanus,pelecanidae],[pelecanus_erythrorhynchos,pelecanus],[pelecanus_occidentalis,pelecanus],[platalea,threskiornithidae],[platalea_ajaja,platalea],[plegadis,threskiornithidae],[plegadis_chihi,plegadis],[plegadis_falcinellus,plegadis]]
 
+[ardeidae,pelecaniformes],
+[pelecanidae,pelecaniformes]
+[threskiornithidae,pelecaniformes]
 isaStrict(ixobrychus_exilis,X).                                        
 	Expected:
 	[ardeidae,ixobrychus,ixobrychus_exilis,pelecaniformes]

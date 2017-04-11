@@ -51,7 +51,7 @@ ofGenus(egretta_rufescens, egretta).
 ofGenus(bubulcus_ibis, bubulcus).
 ofGenus(butorides_virescens, butorides).
 ofGenus(nycticorax_nycticorax, nycticorax).
-ofGenus(violacea, nyctanassa).
+ofGenus(nyctanassa_violacea, nyctanassa). % changed from ofGenus(violacea, nyctanassa)
 
 ofGenus(eudocimus_albus, eudocimus).
 ofGenus(plegadis_falcinellus, plegadis).
@@ -80,6 +80,8 @@ ofGenusNS(albus, eudocimus).
 ofGenusNS(falcinellus, plegadis).
 ofGenusNS(chihi, plegadis).
 ofGenusNS(ajaja, platalea).
+
+
 
 % Common names
 
@@ -377,14 +379,14 @@ species(ajaja).
 hasParent(X, Y) :- ofOrder(X, Y).	% Previously, would not return order
 
 hasParent(A, B) :- \+ compoundName(A),
-									 ofOrder(A, B);
+                                     ofOrder(A, B);
 									 ofFamily(A, B);
 									 ofGenusNS(A, B).
 
 % ----------------------------------------
-
+hasParent2(A, B) :- ofOrder(A, B).
 hasParent2(A, B) :- \+ species(A),
-										ofOrder(A, B);
+                                        ofOrder(A, B);
 										ofFamily(A, B);
 										ofGenus(A, B).
 
@@ -420,7 +422,7 @@ hasCompoundName(G, S, N) :- genus(G),
 
 % ----------------------------------------
 
-isaStrict(A, B) :- (hasParent2(A, B);
+isaStrict(A, B) :- (hasParent2(A, B); isaUniversal(A,B);
 									 hasParent2(A, X), hasParent2(X, B);
 									 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B)),
 									 \+ commonName(A),
@@ -432,11 +434,22 @@ isCommon(X, Y) :- commonName(X),
 							 		hasSciName(X, N),
 							 		Y = N.
 
-isa(A, B) :- isCommon(A, D), isa(D, B);
-						 isCommon(B, E), isa(A, E);
+
+isa(A, B) :- (nonvar(A), var(B) ; var(A), nonvar(B); var(A), var(B))
+    ->  ( isCommon(A, D), isa(D, B); isCommon(B, E), isa(A, E);
+        (hasParent2(A, B);
+    hasParent2(A, X), hasParent2(X, B);
+    hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B)),(\+ commonName(A), \+ commonName(B)));
+    (   isCommon(A, D), isa(D, B); isCommon(B, E), isa(A, E);
 						 hasParent2(A, B);
 						 hasParent2(A, X), hasParent2(X, B);
-						 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B).
+						 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B);
+						 isaUniversal(A,B)).
+
+isaUniversal(A,B) :- isVar(A), isVar(B),
+            (\+ isCommon(A, X), \+ isCommon(B, Y), A==B);
+            (isCommon(A, X), \+ isCommon(B, Y), X==B, A=X).
+
 
 % ----------------------------------------
 
@@ -530,3 +543,9 @@ conservation(A, P) :- conservationStatus(A, P).
 
 % -----------------------------------------
 
+isVar(A) :- nonvar(A),(
+            (order(A));
+            (family(A));
+            (genus(A));
+            (compoundName(A));
+            (commonName(A))).
