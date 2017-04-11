@@ -478,25 +478,26 @@ synonym(A, B) :- hasSciName(A, B);
 
 % ----------------------------------------
 
-countSpecies(A, N) :- nonvar(N), !, fail.
-countSpecies(pelecaniformes, N) :- !, N = 18.
-countSpecies(pelecanidae, N) :- !, N = 2.
-countSpecies(ardeidae, N) :- !, N = 12.
-countSpecies(threskiornithidae, N) :- !, N = 4.
-countSpecies(pelecanus, N) :- !, N = 2.
-countSpecies(botaurus, N) :- !, N = 1.
-countSpecies(ixobrychus, N) :- !, N = 1.
-countSpecies(ardea, N) :- !, N = 2.
-countSpecies(egretta, N) :- !, N = 4.
-countSpecies(bubulcus, N) :- !, N = 1.
-countSpecies(butorides, N) :- !, N = 1.
-countSpecies(nycticorax, N) :- !, N = 1.
-countSpecies(nyctanassa, N) :- !, N = 1.
-countSpecies(eudocimus, N) :- !, N = 1.
-countSpecies(plegadis, N) :- !, N = 2.
-countSpecies(platalea, N) :- !, N = 1.
-countSpecies(A, N) :-	compoundName(A), N = 1.
-countSpecies(A, N) :- N = 0.
+
+countSpecies(A, N) :- nonvar(N), fail.
+countSpecies(pelecaniformes, N) :-  N = 18.
+countSpecies(pelecanidae, N) :-  N = 2.
+countSpecies(ardeidae, N) :-  N = 12.
+countSpecies(threskiornithidae, N) :-  N = 4.
+countSpecies(pelecanus, N) :-  N = 2.
+countSpecies(botaurus, N) :-  N = 1.
+countSpecies(ixobrychus, N) :-  N = 1.
+countSpecies(ardea, N) :-  N = 2.
+countSpecies(egretta, N) :-  N = 4.
+countSpecies(bubulcus, N) :-  N = 1.
+countSpecies(butorides, N) :-  N = 1.
+countSpecies(nycticorax, N) :-  N = 1.
+countSpecies(nyctanassa, N) :-  N = 1.
+countSpecies(eudocimus, N) :-  N = 1.
+countSpecies(plegadis, N) :-  N = 2.
+countSpecies(platalea, N) :-  N = 1.
+countSpecies(A, N) :-	compoundName(A),  N = 1.
+countSpecies(A, N) :- \+ isVar(A), N=0.
 
 % ----------------------------------------
 
