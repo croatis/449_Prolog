@@ -424,7 +424,9 @@ hasCompoundName(G, S, N) :- genus(G),
 
 isaStrict(A, B) :- (hasParent2(A, B); isaUniversal(A,B);
 									 hasParent2(A, X), hasParent2(X, B);
-									 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B)),
+									 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B));
+									 isVarNC(A),B=A;
+                                     isVarNC(B), A=B,
 									 \+ commonName(A),
 									 \+ commonName(B).
 
@@ -434,23 +436,39 @@ isCommon(X, Y) :- commonName(X),
 							 		hasSciName(X, N),
 							 		Y = N.
 
+isa(A,B) :- var(A), var(B), isaLogic(A,B).
 
-isa(A, B) :- (nonvar(A), var(B) ; var(A), nonvar(B); var(A), var(B))
-    ->  ( isCommon(A, D), isa(D, B); isCommon(B, E), isa(A, E);
-        (hasParent2(A, B);
-    hasParent2(A, X), hasParent2(X, B);
-    hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B)),(\+ commonName(A), \+ commonName(B)));
-    (   isCommon(A, D), isa(D, B); isCommon(B, E), isa(A, E);
-						 hasParent2(A, B);
-						 hasParent2(A, X), hasParent2(X, B);
-						 hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B);
-						 isaUniversal(A,B)).
+
+isa(A,B) :- nonvar(A), var(B), commonName(A)
+    -> (
+        commonNameC(X, A), isaLogic(X,B);
+        commonNameG(X, A), isaLogic(X,B);
+        commonNameS(X, A), isaLogic(X, B)
+    );isaLogic(A,B).
+
+isa(A,B) :- var(A), nonvar(B), commonName(B)
+    -> (
+        commonNameC(X, B), isaLogic(A,X);
+        commonNameG(X, B), isaLogic(A,X);
+        commonNameS(X, B), isaLogic(A,X)
+    ); isaLogic(A,B).
+
+isa(A,B) :- nonvar(A), nonvar(B),(
+    isCommon(A, D), isa(D, B); isCommon(B, E), isa(A, E);
+    						 isaLogic(A,B);
+    						 isaUniversal(A,B)).
+
+
 
 isaUniversal(A,B) :- isVar(A), isVar(B),
             (\+ isCommon(A, X), \+ isCommon(B, Y), A==B);
             (isCommon(A, X), \+ isCommon(B, Y), X==B, A=X).
 
-
+isaLogic(A,B):- hasParent2(A, B);
+                                hasParent2(A, X), hasParent2(X, B);
+                                hasParent2(A, X), hasParent2(X, Y), hasParent2(Y, B);
+                                isVarNC(A),B=A;
+                                isVarNC(B), A=B.
 % ----------------------------------------
 
 synonym(A, B) :- hasSciName(A, B);
@@ -549,3 +567,9 @@ isVar(A) :- nonvar(A),(
             (genus(A));
             (compoundName(A));
             (commonName(A))).
+
+isVarNC(A) :- nonvar(A),(
+            (order(A));
+            (family(A));
+            (genus(A));
+            (compoundName(A))).

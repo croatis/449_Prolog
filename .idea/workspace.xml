@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38519fc7-e45a-43b4-b47d-b92b49623753" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pelecaniformes.pl" afterPath="$PROJECT_DIR$/pelecaniformes.pl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toDo.txt" afterPath="$PROJECT_DIR$/toDo.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="pelecaniformes.pl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pelecaniformes.pl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="441" column="95" lean-forward="false" selection-start-line="441" selection-start-column="95" selection-end-line="441" selection-end-column="95" />
+            <state relative-caret-position="488">
+              <caret line="472" column="0" lean-forward="true" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,6 +40,8 @@
       <find>ofOrder</find>
       <find>hasSciName</find>
       <find>isCommon</find>
+      <find>commonName</find>
+      <find>isVar2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -250,8 +250,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pelecaniformes.pl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="441" column="95" lean-forward="false" selection-start-line="441" selection-start-column="95" selection-end-line="441" selection-end-column="95" />
+        <state relative-caret-position="488">
+          <caret line="472" column="0" lean-forward="true" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
           <folding />
         </state>
       </provider>
